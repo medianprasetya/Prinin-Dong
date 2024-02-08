@@ -11,11 +11,18 @@ class HomePage extends StatelessWidget {
       theme: ThemeData(fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Home'),
-          backgroundColor: Colors.red,
-        ),
+     appBar: AppBar(
+  centerTitle: true,
+  title: const Text('Prinin Dong', style: TextStyle(color: Colors.white)),
+  backgroundColor: Colors.red,
+  elevation: 50.0,
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.only(
+      bottomLeft: Radius.circular(20.0),
+      bottomRight: Radius.circular(20.0),
+    ),
+  ),
+),
         body: LayoutBuilder(
           builder: (context, constraints) {
             return Stack(
@@ -92,7 +99,7 @@ class HomePage extends StatelessWidget {
                          Column(
                           children: [
                             // Widget komentar
-                            for (int i = 0; i < 10; i++)
+                            for (int i = 0; i < 1000; i++)
                               ListTile(
                                 leading: Icon(i % 4 == 0 ? Icons.check : Icons.access_time_filled_sharp, color:(i % 4 == 0 ? Colors.red : Colors.black87)),
                                 title: Text('Print Document'),
