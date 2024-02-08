@@ -174,8 +174,8 @@ class FiturHome extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     gradient: LinearGradient(
                       colors: [
-                        Color.fromARGB(255, 255, 234, 234),
-                        Color.fromARGB(255, 255, 234, 234),
+                        Color.fromARGB(255, 255, 251, 251),
+                        Color.fromARGB(255, 255, 255, 255),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -217,8 +217,8 @@ class FiturHome extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     gradient: LinearGradient(
                       colors: [
-                        Color.fromARGB(255, 255, 234, 234),
-                        Color.fromARGB(255, 255, 234, 234),
+                   Color.fromARGB(255, 255, 251, 251),
+                        Color.fromARGB(255, 255, 255, 255),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
