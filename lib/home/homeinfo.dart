@@ -1,9 +1,9 @@
-// lib/home/homeprofile.dart
+// lib/home/HomeInfo.dart
 
 import 'package:flutter/material.dart';
 
-class HomeProfile extends StatelessWidget {
-  const HomeProfile({super.key});
+class HomeInfo extends StatelessWidget {
+  const HomeInfo({super.key});
 
   @override
   Widget build(BuildContext context) {

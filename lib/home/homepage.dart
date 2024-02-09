@@ -4,25 +4,30 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
+    dynamic x = 15;
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-     appBar: AppBar(
-  centerTitle: true,
-  title: const Text('Prinin Dong', style: TextStyle(color: Colors.white)),
-  backgroundColor: Colors.red,
-  elevation: 50.0,
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.only(
-      bottomLeft: Radius.circular(20.0),
-      bottomRight: Radius.circular(20.0),
-    ),
-  ),
-),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text('Prinin Dong',
+              style: TextStyle(
+                color: Colors.white,
+                // fontSize: MediaQuery.of(context).size.height * 0.015,
+                // fontSize: 14,
+                fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
+              )),
+          backgroundColor: Colors.red,
+          // elevation: 50.50,
+          // shape: const RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.only(
+          //     bottomLeft: Radius.circular(0.0),
+          //     bottomRight: Radius.circular(20.0),
+          //   ),
+          // ),
+        ),
         body: LayoutBuilder(
           builder: (context, constraints) {
             return Stack(
@@ -37,10 +42,10 @@ class HomePage extends StatelessWidget {
 
                 // Content
                 ListView(
-                  children: const [
+                  children: [
                     Column(
                       children: [
-                        SaldoHome(),
+                        const SaldoHome(),
                         Column(
                           children: [
                             Text(
@@ -48,32 +53,41 @@ class HomePage extends StatelessWidget {
                               textAlign: TextAlign.center,
                               maxLines: 1,
                               style: TextStyle(
-                                  fontSize: 18, color: Colors.deepOrange),
-                            ),
+                                fontSize: MediaQuery.of(context).size.width >
+                                        200
+                                    ? 16
+                                    : MediaQuery.of(context).size.width * 0.015,
+                                // MediaQuery.of(context).size.height * 0.015,
+                              ),
+                            )
                           ],
                         ),
-                        FiturHome(),
+                        const FiturHome(),
                       ],
                     ),
                   ],
                 ),
 
                 DraggableScrollableSheet(
+                  snap: true,
+                  snapAnimationDuration: const Duration(milliseconds: 400),
                   initialChildSize: 0.4, // Ukuran awal sheet saat minimized
-                  maxChildSize: 0.78, // Ukuran maksimal sheet saat expanded
-                  minChildSize: 0.2, // Ukuran minimal sheet saat minimized
+                  maxChildSize: 0.75, // Ukuran maksimal sheet saat expanded
+                  minChildSize: 0.25, // Ukuran minimal sheet saat minimized
                   builder: (context, scrollController) {
                     return Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                      decoration: BoxDecoration(
+                      padding: EdgeInsets.symmetric(
+                          horizontal:
+                              MediaQuery.of(context).size.width > 600 ? 30 : 20,
+                          vertical: 12),
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20),
                         ),
                         boxShadow: [
-                        BoxShadow(
+                          BoxShadow(
                             color: Color.fromARGB(25, 0, 0, 0),
                             spreadRadius: 1,
                             blurRadius: 25,
@@ -85,69 +99,54 @@ class HomePage extends StatelessWidget {
                         controller: scrollController,
                         children: [
                           // Header untuk menunjukkan bahwa ini adalah area yang dapat ditarik
-                          Container(
-                            height: 10,
-                            width: 20,
-                            decoration: BoxDecoration(
-                              color: Colors.red[200],
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                          ),
-                          SizedBox(height: 40),
+                          // SizedBox(height: 40),
 
                           // Isi komentar atau formulir komentar
-                         Column(
-                          children: [
-                            // Widget komentar
-                            for (int i = 0; i < 1000; i++)
-                              ListTile(
-                                leading: Icon(i % 4 == 0 ? Icons.check : Icons.access_time_filled_sharp, color:(i % 4 == 0 ? Colors.red : Colors.black87)),
-                                title: Text('Print Document'),
-                                trailing: Text('2024.01.${i + 1}'),
-                              ),
-                          ],
-                        ),
+                          Column(
+                            children: [
+                              // Widget komentar
+                              for (int i = 0; i < x; i++)
+                                ListTile(
+                                  leading: Icon(
+                                      i % 4 == 0
+                                          ? Icons.check
+                                          : Icons.access_time_filled_sharp,
+                                      color: (i % 4 == 0
+                                          ? Colors.red
+                                          : const Color.fromARGB(
+                                              221, 191, 33, 223))),
+                                  title: Text(
+                                    'Print Document',
+                                    style: TextStyle(
+                                      fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width >
+                                              200
+                                          ? 16
+                                          : MediaQuery.of(context).size.width *
+                                              0.015,
+                                    ),
+                                  ),
+                                  trailing: Text(
+                                    '2024.01.${i + 1}',
+                                    style: TextStyle(
+                                      fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width >
+                                              200
+                                          ? 14
+                                          : MediaQuery.of(context).size.width *
+                                              0.015,
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
                         ],
                       ),
                     );
                   },
                 ),
-
-                // Positioned Widget for Bottom Center
-                // Positioned(
-                //   bottom: -constraints.maxHeight / 4,
-                //   width: constraints.maxWidth,
-                //   child: Center(
-                //     child: Container(
-                //       margin: const EdgeInsets.all(20),
-                //       height: constraints.maxHeight / 2,
-                //       decoration: const BoxDecoration(
-                //         borderRadius: BorderRadius.all(Radius.circular(20)),
-                //         gradient: LinearGradient(
-                //           colors: [
-                //             Color.fromARGB(255, 255, 255, 255),
-                //             Color.fromARGB(255, 255, 255, 255),
-                //           ],
-                //           begin: Alignment.topLeft,
-                //           end: Alignment.bottomRight,
-                //         ),
-                //         boxShadow: [
-                //           BoxShadow(
-                //             color: Color.fromARGB(25, 0, 0, 0),
-                //             spreadRadius: 1,
-                //             blurRadius: 25,
-                //             offset: Offset(10, 0),
-                //           ),
-                //         ],
-                //       ),
-                //       child: const ListTile(
-                //         leading: Icon(Icons.check),
-                //         title: Text('Print Document'),
-                //         trailing: Text('2024.01.15'),
-                //       ),
-                //     ),
-                //   ),
-                // ),
               ],
             );
           },
@@ -207,9 +206,14 @@ class FiturHome extends StatelessWidget {
               ),
               Container(
                   margin: const EdgeInsets.only(top: 10.0),
-                  child: const Text(
+                  child: Text(
                     "Cetak PDF",
-                    style: TextStyle(fontSize: 14),
+                    style: TextStyle(
+                      // fontSize: MediaQuery.of(context).size.height * 0.015,
+                      // fontSize: 14,
+                      fontSize:
+                          MediaQuery.of(context).size.width > 200 ? 14 : 14,
+                    ),
                   ))
             ],
           ),
@@ -224,7 +228,7 @@ class FiturHome extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     gradient: LinearGradient(
                       colors: [
-                   Color.fromARGB(255, 255, 251, 251),
+                        Color.fromARGB(255, 255, 251, 251),
                         Color.fromARGB(255, 255, 255, 255),
                       ],
                       begin: Alignment.topLeft,
@@ -250,9 +254,14 @@ class FiturHome extends StatelessWidget {
               ),
               Container(
                   margin: const EdgeInsets.only(top: 10.0),
-                  child: const Text(
+                  child: Text(
                     "Cetak File",
-                    style: TextStyle(fontSize: 14),
+                    style: TextStyle(
+                      // fontSize: MediaQuery.of(context).size.height * 0.015,
+                      // fontSize: 14,
+                      fontSize:
+                          MediaQuery.of(context).size.width > 200 ? 14 : 14,
+                    ),
                   ))
             ],
           ),
@@ -290,9 +299,9 @@ class SaldoHome extends StatelessWidget {
           ),
         ],
       ),
-      child: const ListTile(
+      child: ListTile(
         contentPadding: EdgeInsets.all(30),
-        leading: CircleAvatar(
+        leading: const CircleAvatar(
           backgroundColor: Colors.white,
           maxRadius: 30,
           child: Icon(
@@ -305,17 +314,38 @@ class SaldoHome extends StatelessWidget {
           child: Text(
             'Saldo : Rp. 6000.00',
             style: TextStyle(
-              fontSize: 20,
+              // fontSize: MediaQuery.of(context).size.height * 0.015,
+              // fontSize: 14,
+              fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
         subtitle: Text(
-          'Eko Ganteng Kali',
+          'Eko Ganteng Kalie',
           style: TextStyle(
-            fontSize: 18,
+            // fontSize: MediaQuery.of(context).size.height * 0.015,
+            // fontSize: 14,
+            fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
             color: Colors.white,
+          ),
+        ),
+        trailing: InkWell(
+          onTap: () {
+            // Navigator.of(context).pushReplacementNamed('/info');
+            print("pencet");
+          },
+          child: Icon(
+            Icons.info_rounded,
+            size: 30,
+            color: Colors.white,
+            shadows: [
+              Shadow(
+                  color: Colors.black54,
+                  offset: Offset.infinite, //untuk full width
+                  blurRadius: 1.2)
+            ],
           ),
         ),
       ),
