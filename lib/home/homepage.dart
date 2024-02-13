@@ -1,9 +1,11 @@
 // lib/home/homepage.dart
 
 import 'package:flutter/material.dart';
+import 'homeinfo.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+  static const routeName = '/homepage';
   @override
   Widget build(BuildContext context) {
     dynamic x = 15;
@@ -331,12 +333,21 @@ class SaldoHome extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        trailing: InkWell(
+        trailing:
+            // TextButton(
+            //     onPressed: () {
+            //       Navigator.of(context).pushNamed(HomeInfo.routeName);
+            //     },
+            //     child: Icon(
+            //       Icons.info_outline_rounded,
+            //       size: 40,
+            //       color: Colors.white,
+            //     )),
+            InkWell(
           onTap: () {
-            // Navigator.of(context).pushReplacementNamed('/info');
-            print("pencet");
+            Navigator.of(context).pushNamed(HomeInfo.routeName);
           },
-          child: Icon(
+          child: const Icon(
             Icons.info_rounded,
             size: 30,
             color: Colors.white,

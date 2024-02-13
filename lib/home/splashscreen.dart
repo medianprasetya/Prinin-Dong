@@ -6,6 +6,7 @@ import 'package:connectivity/connectivity.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+  static const routeName = '/splash';
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -78,7 +79,7 @@ class _SplashScreenState extends State<SplashScreen>
               maxRadius: 80,
               child: Icon(
                 Icons.print_rounded,
-                size: 52,
+                size: 60,
                 color: Colors.red,
               ),
             ),

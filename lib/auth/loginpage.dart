@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../home/splashscreen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+  static const routeName = '/login';
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -24,8 +26,8 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.facebook, size: 80, color: Colors.blue),
-            SizedBox(
+            const Icon(Icons.facebook, size: 80, color: Colors.blue),
+            const SizedBox(
               height: 30,
             ),
             TextField(
@@ -48,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: !isPasswordVisible,
               decoration: InputDecoration(
                 labelText: 'Password',
-                icon: Icon(Icons.lock),
+                icon: const Icon(Icons.lock),
                 suffixIcon: IconButton(
                   icon: Icon(
                     isPasswordVisible ? Icons.visibility : Icons.visibility_off,
@@ -91,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 10),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushReplacementNamed('/splash');
+                Navigator.of(context).pushNamed(SplashScreen.routeName);
               },
               child: Text(
                 'Register',

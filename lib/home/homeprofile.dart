@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class HomeProfile extends StatelessWidget {
   const HomeProfile({super.key});
-
+  static const routeName = '/homeprofile';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
