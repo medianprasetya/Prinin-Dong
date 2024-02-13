@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class HomeInfo extends StatelessWidget {
   static const routeName = '/homeinfo';
-  const HomeInfo({super.key});
 
+  const HomeInfo({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,9 +16,6 @@ class HomeInfo extends StatelessWidget {
           centerTitle: true,
           title: const Text('Information'),
           backgroundColor: Colors.red,
-        ),
-        body: Row(
-          children: const [Text("ini information")],
         ),
       ),
     );

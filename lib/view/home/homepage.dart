@@ -1,7 +1,7 @@
 // lib/home/homepage.dart
 
 import 'package:flutter/material.dart';
-import 'homeinfo.dart';
+import '/view/auth/loginpage.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,13 +14,24 @@ class HomePage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Prinin Dong',
-              style: TextStyle(
-                color: Colors.white,
-                // fontSize: MediaQuery.of(context).size.height * 0.015,
-                // fontSize: 14,
-                fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
-              )),
+          title:
+              // Text('Prinin Dong',
+              //     style: TextStyle(
+              //       color: Colors.white,
+              //       // fontSize: MediaQuery.of(context).size.height * 0.015,
+              //       // fontSize: 14,
+              //       fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
+              //     )),
+              const CircleAvatar(
+          backgroundColor: Colors.white,
+          maxRadius: 30,
+          child: Icon(
+            Icons.print_rounded,
+            size: 42,
+            color: Colors.red,
+          ),
+        ),
+          ),
           backgroundColor: Colors.red,
           // elevation: 50.50,
           // shape: const RoundedRectangleBorder(
@@ -345,7 +356,7 @@ class SaldoHome extends StatelessWidget {
             //     )),
             InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed(HomeInfo.routeName);
+            Navigator.of(context).pushNamed(LoginPage.routeName);
           },
           child: const Icon(
             Icons.info_rounded,

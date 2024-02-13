@@ -1,11 +1,12 @@
 // lib/main.dart
 
 import 'package:flutter/material.dart';
-import './auth/loginpage.dart';
-import './home/homeinfo.dart';
-import './home/splashscreen.dart';
-import './home/homepage.dart';
-import './home/homeprofile.dart';
+import 'package:prinin_dong/view/auth/loginpage.dart';
+
+import 'view/home/homeinfo.dart';
+import 'view/home/splashscreen.dart';
+import 'view/home/homepage.dart';
+import 'view/home/homeprofile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,14 +21,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: HomePage(),
       initialRoute: HomePage.routeName,
       routes: {
-        SplashScreen.routeName: (context) => const SplashScreen(),
-        HomePage.routeName: (context) => const HomePage(),
-        HomeProfile.routeName: (context) => const HomeProfile(),
-        HomeInfo.routeName: (context) => const HomeInfo(),
-        LoginPage.routeName: (context) => const LoginPage(),
+        SplashScreen.routeName: (context) => SplashScreen(),
+        HomePage.routeName: (context) => HomePage(),
+        HomeProfile.routeName: (context) => HomeProfile(),
+        HomeInfo.routeName: (context) => HomeInfo(),
+        LoginPage.routeName: (context) => LoginPage(),
       },
     );
   }
