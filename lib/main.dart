@@ -21,14 +21,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
       initialRoute: HomePage.routeName,
       routes: {
-        SplashScreen.routeName: (context) => SplashScreen(),
-        HomePage.routeName: (context) => HomePage(),
-        HomeProfile.routeName: (context) => HomeProfile(),
+        SplashScreen.routeName: (context) => const SplashScreen(),
+        HomePage.routeName: (context) => const HomePage(),
+        HomeProfile.routeName: (context) => const HomeProfile(),
         HomeInfo.routeName: (context) => HomeInfo(),
-        LoginPage.routeName: (context) => LoginPage(),
+        LoginPage.routeName: (context) => const LoginPage(),
       },
     );
   }

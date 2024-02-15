@@ -1,7 +1,8 @@
 // lib/home/homepage.dart
 
 import 'package:flutter/material.dart';
-import '/view/auth/loginpage.dart';
+import '/view/home/homeinfo.dart';
+import '/view/home/homeprofile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,33 +13,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title:
-            // Text('Prinin Dong',
-            //     style: TextStyle(
-            //       color: Colors.white,
-            //       // fontSize: MediaQuery.of(context).size.height * 0.015,
-            //       // fontSize: 14,
-            //       fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
-            //     )),
-            const CircleAvatar(
-          backgroundColor: Colors.white,
-          maxRadius: 26,
-          child: Icon(
-            Icons.print_rounded,
-            size: 42,
-            color: Colors.red,
-          ),
-        ),
         backgroundColor: Colors.red,
       ),
-      // elevation: 50.50,
-      // shape: const RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.only(
-      //     bottomLeft: Radius.circular(0.0),
-      //     bottomRight: Radius.circular(20.0),
-      //   ),
-      // ),
-
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Stack(
@@ -46,7 +22,8 @@ class HomePage extends StatelessWidget {
               // Background Blur
               Container(
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(248, 255, 249, 248).withOpacity(0.6),
+                  color:
+                      const Color.fromARGB(248, 249, 198, 195).withOpacity(0.6),
                 ),
               ),
 
@@ -308,14 +285,20 @@ class SaldoHome extends StatelessWidget {
         ],
       ),
       child: ListTile(
-        contentPadding: EdgeInsets.all(30),
-        leading: const CircleAvatar(
-          backgroundColor: Colors.white,
-          maxRadius: 30,
-          child: Icon(
-            Icons.print_rounded,
-            size: 42,
-            color: Colors.red,
+        contentPadding: const EdgeInsets.all(30),
+        leading: InkWell(
+          onTap: () {
+            print(context);
+            Navigator.of(context).pushNamed(HomeProfile.routeName);
+          },
+          child: const CircleAvatar(
+            backgroundColor: Colors.white,
+            maxRadius: 30,
+            child: Icon(
+              Icons.print_rounded,
+              size: 42,
+              color: Colors.red,
+            ),
           ),
         ),
         title: SizedBox(
@@ -351,7 +334,7 @@ class SaldoHome extends StatelessWidget {
             //     )),
             InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed(LoginPage.routeName);
+            Navigator.of(context).pushNamed(HomeInfo.routeName);
           },
           child: const Icon(
             Icons.info_rounded,
