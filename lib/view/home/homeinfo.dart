@@ -8,15 +8,11 @@ class HomeInfo extends StatelessWidget {
   const HomeInfo({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: 'Poppins'),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Information'),
-          backgroundColor: Colors.red,
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Information'),
+        backgroundColor: Colors.red,
       ),
     );
   }

@@ -9,161 +9,156 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     dynamic x = 15;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title:
-              // Text('Prinin Dong',
-              //     style: TextStyle(
-              //       color: Colors.white,
-              //       // fontSize: MediaQuery.of(context).size.height * 0.015,
-              //       // fontSize: 14,
-              //       fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
-              //     )),
-              const CircleAvatar(
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title:
+            // Text('Prinin Dong',
+            //     style: TextStyle(
+            //       color: Colors.white,
+            //       // fontSize: MediaQuery.of(context).size.height * 0.015,
+            //       // fontSize: 14,
+            //       fontSize: MediaQuery.of(context).size.width > 200 ? 18 : 14,
+            //     )),
+            const CircleAvatar(
           backgroundColor: Colors.white,
-          maxRadius: 30,
+          maxRadius: 26,
           child: Icon(
             Icons.print_rounded,
             size: 42,
             color: Colors.red,
           ),
         ),
-          ),
-          backgroundColor: Colors.red,
-          // elevation: 50.50,
-          // shape: const RoundedRectangleBorder(
-          //   borderRadius: BorderRadius.only(
-          //     bottomLeft: Radius.circular(0.0),
-          //     bottomRight: Radius.circular(20.0),
-          //   ),
-          // ),
-        ),
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            return Stack(
-              children: [
-                // Background Blur
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(248, 249, 198, 195)
-                        .withOpacity(0.6),
-                  ),
-                ),
+        backgroundColor: Colors.red,
+      ),
+      // elevation: 50.50,
+      // shape: const RoundedRectangleBorder(
+      //   borderRadius: BorderRadius.only(
+      //     bottomLeft: Radius.circular(0.0),
+      //     bottomRight: Radius.circular(20.0),
+      //   ),
+      // ),
 
-                // Content
-                ListView(
-                  children: [
-                    Column(
-                      children: [
-                        const SaldoHome(),
-                        Column(
-                          children: [
-                            Text(
-                              "Fitur :",
-                              textAlign: TextAlign.center,
-                              maxLines: 1,
-                              style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.width >
-                                        200
-                                    ? 16
-                                    : MediaQuery.of(context).size.width * 0.015,
-                                // MediaQuery.of(context).size.height * 0.015,
-                              ),
-                            )
-                          ],
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
+            children: [
+              // Background Blur
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(248, 255, 249, 248).withOpacity(0.6),
+                ),
+              ),
+
+              // Content
+              ListView(
+                children: [
+                  Column(
+                    children: [
+                      const SaldoHome(),
+                      Column(
+                        children: [
+                          Text(
+                            "Fitur :",
+                            textAlign: TextAlign.center,
+                            maxLines: 1,
+                            style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.width > 200
+                                  ? 16
+                                  : MediaQuery.of(context).size.width * 0.015,
+                              // MediaQuery.of(context).size.height * 0.015,
+                            ),
+                          )
+                        ],
+                      ),
+                      const FiturHome(),
+                    ],
+                  ),
+                ],
+              ),
+
+              DraggableScrollableSheet(
+                snap: true,
+                snapAnimationDuration: const Duration(milliseconds: 400),
+                initialChildSize: 0.4, // Ukuran awal sheet saat minimized
+                maxChildSize: 0.75, // Ukuran maksimal sheet saat expanded
+                minChildSize: 0.25, // Ukuran minimal sheet saat minimized
+                builder: (context, scrollController) {
+                  return Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            MediaQuery.of(context).size.width > 600 ? 30 : 20,
+                        vertical: 12),
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(25, 0, 0, 0),
+                          spreadRadius: 1,
+                          blurRadius: 25,
+                          offset: Offset(10, 0),
                         ),
-                        const FiturHome(),
                       ],
                     ),
-                  ],
-                ),
+                    child: ListView(
+                      controller: scrollController,
+                      children: [
+                        // Header untuk menunjukkan bahwa ini adalah area yang dapat ditarik
+                        // SizedBox(height: 40),
 
-                DraggableScrollableSheet(
-                  snap: true,
-                  snapAnimationDuration: const Duration(milliseconds: 400),
-                  initialChildSize: 0.4, // Ukuran awal sheet saat minimized
-                  maxChildSize: 0.75, // Ukuran maksimal sheet saat expanded
-                  minChildSize: 0.25, // Ukuran minimal sheet saat minimized
-                  builder: (context, scrollController) {
-                    return Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal:
-                              MediaQuery.of(context).size.width > 600 ? 30 : 20,
-                          vertical: 12),
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(25, 0, 0, 0),
-                            spreadRadius: 1,
-                            blurRadius: 25,
-                            offset: Offset(10, 0),
-                          ),
-                        ],
-                      ),
-                      child: ListView(
-                        controller: scrollController,
-                        children: [
-                          // Header untuk menunjukkan bahwa ini adalah area yang dapat ditarik
-                          // SizedBox(height: 40),
-
-                          // Isi komentar atau formulir komentar
-                          Column(
-                            children: [
-                              // Widget komentar
-                              for (int i = 0; i < x; i++)
-                                ListTile(
-                                  leading: Icon(
-                                      i % 4 == 0
-                                          ? Icons.check
-                                          : Icons.access_time_filled_sharp,
-                                      color: (i % 4 == 0
-                                          ? Colors.red
-                                          : const Color.fromARGB(
-                                              221, 191, 33, 223))),
-                                  title: Text(
-                                    'Print Document',
-                                    style: TextStyle(
-                                      fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width >
-                                              200
-                                          ? 16
-                                          : MediaQuery.of(context).size.width *
-                                              0.015,
-                                    ),
-                                  ),
-                                  trailing: Text(
-                                    '2024.01.${i + 1}',
-                                    style: TextStyle(
-                                      fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width >
-                                              200
-                                          ? 14
-                                          : MediaQuery.of(context).size.width *
-                                              0.015,
-                                    ),
+                        // Isi komentar atau formulir komentar
+                        Column(
+                          children: [
+                            // Widget komentar
+                            for (int i = 0; i < x; i++)
+                              ListTile(
+                                leading: Icon(
+                                    i % 4 == 0
+                                        ? Icons.check
+                                        : Icons.access_time_filled_sharp,
+                                    color: (i % 4 == 0
+                                        ? Colors.red
+                                        : const Color.fromARGB(
+                                            221, 191, 33, 223))),
+                                title: Text(
+                                  'Print Document',
+                                  style: TextStyle(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width > 200
+                                            ? 16
+                                            : MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.015,
                                   ),
                                 ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ],
-            );
-          },
-        ),
+                                trailing: Text(
+                                  '2024.01.${i + 1}',
+                                  style: TextStyle(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width > 200
+                                            ? 14
+                                            : MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.015,
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ],
+          );
+        },
       ),
     );
   }

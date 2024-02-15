@@ -7,89 +7,85 @@ class HomeProfile extends StatelessWidget {
   static const routeName = '/homeprofile';
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: 'Poppins'),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Home'),
-          backgroundColor: Colors.red,
-        ),
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            return Stack(
-              children: [
-                // Background Blur
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(248, 249, 198, 195)
-                        .withOpacity(0.6),
-                  ),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('Home'),
+        backgroundColor: Colors.red,
+      ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
+            children: [
+              // Background Blur
+              Container(
+                decoration: BoxDecoration(
+                  color:
+                      const Color.fromARGB(248, 249, 198, 195).withOpacity(0.6),
                 ),
+              ),
 
-                // Content
-                ListView(
-                  children: const [
-                    Column(
-                      children: [
-                        SaldoHome(),
-                        Column(
-                          children: [
-                            Text(
-                              "Fitur :",
-                              textAlign: TextAlign.center,
-                              maxLines: 1,
-                              style: TextStyle(
-                                  fontSize: 18, color: Colors.deepOrange),
-                            ),
-                          ],
-                        ),
-                        FiturHome(),
-                      ],
-                    ),
-                  ],
-                ),
-
-                // Positioned Widget for Bottom Center
-                Positioned(
-                  bottom: -constraints.maxHeight / 4,
-                  width: constraints.maxWidth,
-                  child: Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(20),
-                      height: constraints.maxHeight / 2,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color.fromARGB(255, 255, 255, 255),
-                            Color.fromARGB(255, 255, 255, 255),
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(25, 0, 0, 0),
-                            spreadRadius: 1,
-                            blurRadius: 25,
-                            offset: Offset(10, 0),
+              // Content
+              ListView(
+                children: const [
+                  Column(
+                    children: [
+                      SaldoHome(),
+                      Column(
+                        children: [
+                          Text(
+                            "Fitur :",
+                            textAlign: TextAlign.center,
+                            maxLines: 1,
+                            style: TextStyle(
+                                fontSize: 18, color: Colors.deepOrange),
                           ),
                         ],
                       ),
-                      child: const ListTile(
-                        leading: Icon(Icons.check),
-                        title: Text('Print Document'),
-                        trailing: Text('2024.01.15'),
+                      FiturHome(),
+                    ],
+                  ),
+                ],
+              ),
+
+              // Positioned Widget for Bottom Center
+              Positioned(
+                bottom: -constraints.maxHeight / 4,
+                width: constraints.maxWidth,
+                child: Center(
+                  child: Container(
+                    margin: const EdgeInsets.all(20),
+                    height: constraints.maxHeight / 2,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(255, 255, 255, 255),
+                          Color.fromARGB(255, 255, 255, 255),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(25, 0, 0, 0),
+                          spreadRadius: 1,
+                          blurRadius: 25,
+                          offset: Offset(10, 0),
+                        ),
+                      ],
+                    ),
+                    child: const ListTile(
+                      leading: Icon(Icons.check),
+                      title: Text('Print Document'),
+                      trailing: Text('2024.01.15'),
                     ),
                   ),
                 ),
-              ],
-            );
-          },
-        ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
